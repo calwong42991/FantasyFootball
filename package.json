@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/calwong42991/FantasyFootball#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "cassandra-driver": "^3.4.1",
     "express": "^4.16.2",
     "jquery": "^3.3.1"
   }
