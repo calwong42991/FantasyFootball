@@ -1,3 +1,3 @@
 const db = require('./player');
 
-db.getKicker();
+db.getAllKicker();
