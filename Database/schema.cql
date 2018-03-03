@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS player_fantasy_stats (
   fumble_tds FLOAT,
   two_pts FLOAT,
   lost_fumble FLOAT,
-  fantasy_pts FLOAT,
+  fantasy_pts INT,
   PRIMARY KEY (rank)
 );
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS kicker_fantasy_stats (
   three_nine INT,
   four_nine INT,
   five_plus INT,
-  fantasy_pts FLOAT,
+  fantasy_pts INT,
   PRIMARY KEY (rank)
 );
 
@@ -57,6 +57,6 @@ CREATE TABLE IF NOT EXISTS dst_fantasy_stats (
   def_two_point_ret INT,
   return_td INT,
   points_allowed INT,
-  fantasy_pts FLOAT,
+  fantasy_pts INT,
   PRIMARY KEY (rank)
 );

@@ -10,7 +10,7 @@ const config = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx||.*?/, 
         include: SRC_DIR,
