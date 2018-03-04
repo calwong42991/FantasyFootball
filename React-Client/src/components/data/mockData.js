@@ -1,4 +1,4 @@
-const mockPlayer = [
+window.mockPlayer = [
   {"RANK":1,"Name":"Russell Wilson","POS":"QB","TEAM":"SEA","PHOTO_ID":"http://res.cloudinary.com/foodswap/image/upload/v1519365310/ffstats/russellwilson.png","PASSING YRDS":3983,"PASSING TDs":34,"INT":11,"RUSHING YRDS":586,"RUSHING TDs":3,"REC YRDS":0,"REC TDs":0,"FUM TD":0,"2PT":2,"LOST FUM":3,"FANTASY POINTS":347.92},
   {"RANK":2,"Name":"Todd Gurley","POS":"RB","TEAM":"LAR","PHOTO_ID":"http://res.cloudinary.com/foodswap/image/upload/v1519347629/ffstats/toddgurley.png","PASSING YRDS":0,"PASSING TDs":0,"INT":0,"RUSHING YRDS":1305,"RUSHING TDs":13,"REC YRDS":788,"REC TDs":6,"FUM TD":0,"2PT":0,"LOST FUM":2,"FANTASY POINTS":319.3},
   {"RANK":3,"Name":"Cam Newton","POS":"QB","TEAM":"CAR","PHOTO_ID":"http://res.cloudinary.com/foodswap/image/upload/v1519365309/ffstats/camnewton.png","PASSING YRDS":3302,"PASSING TDs":22,"INT":16,"RUSHING YRDS":754,"RUSHING TDs":6,"REC YRDS":0,"REC TDs":0,"FUM TD":0,"2PT":1,"LOST FUM":1,"FANTASY POINTS":299.48},
@@ -258,5 +258,3 @@ const mockPlayer = [
   {"RANK":257,"Name":"Kevin White ","POS":"WR","TEAM":"CHI","PHOTO_ID":"http://res.cloudinary.com/foodswap/image/upload/v1519339864/ffstats/kevinwhite.png","PASSING YRDS":0,"PASSING TDs":0,"INT":0,"RUSHING YRDS":0,"RUSHING TDs":0,"REC YRDS":6,"REC TDs":0,"FUM TD":0,"2PT":0,"LOST FUM":0,"FANTASY POINTS":0.6},
   {"RANK":258,"Name":"Julian Edelman ","POS":"WR","TEAM":"NE","PHOTO_ID":"http://res.cloudinary.com/foodswap/image/upload/v1519339863/ffstats/julianEdleman.png","PASSING YRDS":0,"PASSING TDs":0,"INT":0,"RUSHING YRDS":0,"RUSHING TDs":0,"REC YRDS":0,"REC TDs":0,"FUM TD":0,"2PT":0,"LOST FUM":0,"FANTASY POINTS":0}
 ]
-
-export default mockPlayer;

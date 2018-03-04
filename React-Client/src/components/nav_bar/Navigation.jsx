@@ -15,8 +15,8 @@ class NavBar extends Component {
       <button> Home </button>
       <button> Login </button>
       <button> Signup </button>
-      {/*<Login/>
-      <Signup />*/}
+      {false && <Login/>}
+      {false && <Signup />}
     </div>)
   }
 }
