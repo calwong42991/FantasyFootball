@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import $ from 'jquery';
 import axios from 'axios';
 import PlayersList from './PlayersList';
@@ -10,7 +10,7 @@ import PlayerTable from './Tables/PlayerTable';
 import KickerTable from './Tables/KickerTable';
 import DstTable from './Tables/DstTable';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -72,7 +72,7 @@ class App extends React.Component {
 
 
   componentDidMount(){
-    this.getAllDst()
+    
   }
 
   render() {
@@ -87,7 +87,7 @@ class App extends React.Component {
 
       {false && <DstTable dst={this.state.dst} option={this.props.options} imageFormater={this.imageFormater}/>}
 
-      
+
 
     </div>)
   }
