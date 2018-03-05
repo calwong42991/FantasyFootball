@@ -10,6 +10,7 @@ import PlayerTable from './Tables/PlayerTable';
 import KickerTable from './Tables/KickerTable';
 import DstTable from './Tables/DstTable';
 import PlayerSelect from './PlayerSelect';
+import PosSelector from './PosSelector';
 
 class App extends Component {
   constructor(props){
@@ -18,13 +19,19 @@ class App extends Component {
       players: [],
       kicker: [],
       dst: [],
-      playerSelected: []
+      displayAll: true,
+      displayKicker: false,
+      displayDst: false,
+      displayPlayer: false,
+      playerSelected: [],
+      PosSelected: ''
     }
     this.getAllPlayers = this.getAllPlayers.bind(this);
     this.getAllKickers = this.getAllKickers.bind(this);
     this.getAllDst = this.getAllDst.bind(this);
     this.playerSelection = this.playerSelection.bind(this);
     this.imageFormater = this.imageFormater.bind(this);
+    this.PosSelection = this.PosSelection.bind(this);
   }
 
   getAllPlayers(){
@@ -79,8 +86,49 @@ class App extends Component {
     })
   }
 
+  PosSelection(e){
+    const PosSelect = e.target.value;
+    if(PosSelect === 'All_players'){
+      this.setState({
+        displayAll: true,
+        PosSelected: '',
+        displayDst: true,
+        displayKicker: true,
+        displayPlayer: true
+      })
+    }
+    if(['QB', 'RB', 'WR', 'TE'].includes(PosSelect)) {
+      this.setState({
+        PosSelected: PosSelect,
+        displayPlayer: true,
+        displayAll: false,
+        displayDst: false,
+        displayKicker: false
+      })
+    }
+
+    if(PosSelect === 'Kicker') {
+      this.setState({
+        displayAll: false,
+        displayDst: false,
+        displayKicker: true,
+        displayPlayer: false
+      })
+    }
+    if(PosSelect === 'Dst') {
+      this.setState({
+        displayAll: false,
+        displayDst: true,
+        displayKicker: false,
+        displayPlayer: false
+      })
+    }
+  }
+
   componentDidMount(){
-    this.getAllDst()
+    this.getAllDst(),
+    this.getAllKickers(),
+    this.getAllPlayers()
   }
 
   render() {
@@ -90,12 +138,14 @@ class App extends Component {
       {false && <PlayersList players={this.state.players}/> }
       
       {this.state.playerSelected.length !== 0 && <PlayerSelect playerSelected={this.state.playerSelected} imageFormater={this.imageFormater} />}
-
-      {false && <PlayerTable players={this.state.players} option={this.props.options} imageFormater={this.imageFormater} />}
       
-      {false && <KickerTable kicker={this.state.kicker} option={this.props.options} imageFormater={this.imageFormater}/>}
+      {true && <PosSelector PosSelection={this.PosSelection}/>}
 
-      {true && <DstTable dst={this.state.dst} Select={this.playerSelection} imageFormater={this.imageFormater} />}
+      {(this.state.displayAll || this.state.displayPlayer) && <PlayerTable players={this.state.players} PosSelected={this.state.PosSelected} Select={this.playerSelection} option={this.props.options} imageFormater={this.imageFormater} />}
+      
+      {(this.state.displayAll || this.state.displayKicker) && <KickerTable kicker={this.state.kicker} Select={this.playerSelection} option={this.props.options} imageFormater={this.imageFormater}/>}
+
+      {(this.state.displayAll || this.state.displayDst) && <DstTable dst={this.state.dst} Select={this.playerSelection} imageFormater={this.imageFormater} />}
 
     </div>)
   }

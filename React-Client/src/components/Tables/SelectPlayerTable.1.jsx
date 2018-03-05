@@ -1,9 +1,9 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
-const SelectPlayerTable = ({}) => {
+const SelectPlayerTable = ({player, imageFormater}) => {
   return (<div>
-    <BootstrapTable data={} pagination={true} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} bordered={true} >
+    <BootstrapTable data={[player]} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} bordered={true} >
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>
       <TableHeaderColumn dataField="player_photo" dataFormat={imageFormater} width="5%" dataAlign="center" dataSort={true}> Photo </TableHeaderColumn>

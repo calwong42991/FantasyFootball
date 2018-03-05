@@ -1,9 +1,9 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
-const KickerTable = ({kicker, option, imageFormater}) => {
+const KickerTable = ({kicker, option, imageFormater, Select}) => {
   return (<div>
-    <BootstrapTable data={kicker.sort((a,b) => {return a.rank - b.rank})} pagination={true} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} bordered={true} >
+    <BootstrapTable data={kicker.sort((a,b) => {return a.rank - b.rank})} pagination={true} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} bordered={true}  options={{onRowClick: Select}} >
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>
       <TableHeaderColumn dataField="player_photo" dataFormat={imageFormater} width="5%" dataAlign="center" dataSort={true}> Photo </TableHeaderColumn>
