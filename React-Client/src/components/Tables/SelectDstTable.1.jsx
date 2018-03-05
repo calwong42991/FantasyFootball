@@ -1,9 +1,10 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
-const DstTable = ({dst, option, imageFormater, Select}) => {
+const SelectDstTable = ({dst, imageFormater}) => {
   return (<div>
-    <BootstrapTable data={dst.sort((a,b) => {return a.rank - b.rank})} pagination={true} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} options={{onRowClick: Select}} >
+
+    <BootstrapTable data={[dst]} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} >
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>
       <TableHeaderColumn dataField="team_photo" dataFormat={imageFormater} width="5%" dataAlign="center" dataSort={true}> Photo </TableHeaderColumn>
@@ -21,8 +22,8 @@ const DstTable = ({dst, option, imageFormater, Select}) => {
 
       <TableHeaderColumn dataField="fantasy_pts" width="5%" dataAlign="center" dataSort={true}> Fantasy PTs </TableHeaderColumn>
 
-    </BootstrapTable>  
+    </BootstrapTable>
   </div>)
 }
 
-export default DstTable;
+export default SelectDstTable;

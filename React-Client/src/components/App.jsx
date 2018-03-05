@@ -9,6 +9,7 @@ import NavBar from './nav_bar/Navigation';
 import PlayerTable from './Tables/PlayerTable';
 import KickerTable from './Tables/KickerTable';
 import DstTable from './Tables/DstTable';
+import PlayerSelect from './PlayerSelect';
 
 class App extends Component {
   constructor(props){
@@ -16,11 +17,13 @@ class App extends Component {
     this.state = {
       players: [],
       kicker: [],
-      dst: []
+      dst: [],
+      playerSelected: []
     }
     this.getAllPlayers = this.getAllPlayers.bind(this);
     this.getAllKickers = this.getAllKickers.bind(this);
     this.getAllDst = this.getAllDst.bind(this);
+    this.playerSelection = this.playerSelection.bind(this);
     this.imageFormater = this.imageFormater.bind(this);
   }
 
@@ -68,26 +71,31 @@ class App extends Component {
 
   imageFormater(cell, row){
     return (<img style={{width:50}} src={cell}/>)
-  } 
-
+  }
+  
+  playerSelection(row){
+    this.setState({
+      playerSelected: row
+    })
+  }
 
   componentDidMount(){
-    
+    this.getAllDst()
   }
 
   render() {
     return (<div> 
       <NavBar />
       <h1>Fantasy Football</h1>
-      {/* <PlayersList players={this.state.players}/> */}
+      {false && <PlayersList players={this.state.players}/> }
+      
+      {this.state.playerSelected.length !== 0 && <PlayerSelect playerSelected={this.state.playerSelected} imageFormater={this.imageFormater} />}
 
       {false && <PlayerTable players={this.state.players} option={this.props.options} imageFormater={this.imageFormater} />}
       
       {false && <KickerTable kicker={this.state.kicker} option={this.props.options} imageFormater={this.imageFormater}/>}
 
-      {false && <DstTable dst={this.state.dst} option={this.props.options} imageFormater={this.imageFormater}/>}
-
-
+      {true && <DstTable dst={this.state.dst} Select={this.playerSelection} imageFormater={this.imageFormater} />}
 
     </div>)
   }
