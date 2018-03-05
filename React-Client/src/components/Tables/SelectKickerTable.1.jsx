@@ -1,8 +1,11 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import DraftPlayer from '../DraftPlayer';
 
-const SelectKickerTable = ({kicker, imageFormater}) => {
+const SelectKickerTable = ({kicker, imageFormater, draftPlayer}) => {
   return (<div>
+    <DraftPlayer draftPlayer={draftPlayer}/>
+
     <BootstrapTable data={[kicker]} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} bordered={true} >
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>

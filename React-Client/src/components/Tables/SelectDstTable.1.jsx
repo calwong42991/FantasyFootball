@@ -1,8 +1,10 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import DraftPlayer from '../DraftPlayer';
 
-const SelectDstTable = ({dst, imageFormater}) => {
+const SelectDstTable = ({dst, imageFormater, draftPlayer}) => {
   return (<div>
+    <DraftPlayer draftPlayer={draftPlayer}/>
 
     <BootstrapTable data={[dst]} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} >
 

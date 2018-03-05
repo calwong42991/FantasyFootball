@@ -32,6 +32,7 @@ class App extends Component {
     this.playerSelection = this.playerSelection.bind(this);
     this.imageFormater = this.imageFormater.bind(this);
     this.PosSelection = this.PosSelection.bind(this);
+    this.draftPlayer = this.draftPlayer.bind(this);
   }
 
   getAllPlayers(){
@@ -40,8 +41,6 @@ class App extends Component {
       url: '/api/getAllPlayers'
     })
     .then((results) => {
-      console.log(results);
-
       this.setState({
         players: results.data
       })
@@ -54,8 +53,6 @@ class App extends Component {
       url: '/api/getAllKickers'
     })
     .then((results) => {
-      console.log(results);
-
       this.setState({
         kicker: results.data
       })
@@ -68,8 +65,6 @@ class App extends Component {
       url: '/api/getAllDst'
     })
     .then((results) => {
-      console.log(results.data);
-
       this.setState({
         dst: results.data
       })
@@ -125,6 +120,44 @@ class App extends Component {
     }
   }
 
+  draftPlayer() {
+    if(this.state.playerSelected.player_pos === 'kicker'){
+      this.state.kicker.map((a, index) => {
+        if(a.rank === this.state.playerSelected.rank){
+          this.state.kicker.splice(index, 1);
+          this.setState({
+            playerSelected: []
+          })
+          return
+        }
+      })
+    }
+
+    if(this.state.playerSelected.player_pos){
+      this.state.players.map((a, index) => {
+        if(a.rank === this.state.playerSelected.rank){
+          this.state.players.splice(index, 1);
+          this.setState({
+            playerSelected: []
+          })
+          return
+        }
+      })
+    }
+
+    if(this.state.playerSelected.team_pos){
+      this.state.dst.map((a, index) => {
+        if(a.rank === this.state.playerSelected.rank){
+          this.state.dst.splice(index, 1);
+          this.setState({
+            playerSelected: []
+          })
+          return
+        }
+      })
+    }
+  }
+
   componentDidMount(){
     this.getAllDst(),
     this.getAllKickers(),
@@ -137,7 +170,7 @@ class App extends Component {
       <h1>Fantasy Football</h1>
       {false && <PlayersList players={this.state.players}/> }
       
-      {this.state.playerSelected.length !== 0 && <PlayerSelect playerSelected={this.state.playerSelected} imageFormater={this.imageFormater} />}
+      {this.state.playerSelected.length !== 0 && <PlayerSelect playerSelected={this.state.playerSelected} imageFormater={this.imageFormater} draftPlayer={this.draftPlayer} />}
       
       {true && <PosSelector PosSelection={this.PosSelection}/>}
 
