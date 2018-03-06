@@ -7,7 +7,7 @@ const DstTable = ({dst, option, imageFormater, Select}) => {
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>
       <TableHeaderColumn dataField="team_photo" dataFormat={imageFormater} width="5%" dataAlign="center" dataSort={true}> Photo </TableHeaderColumn>
-      <TableHeaderColumn dataField="team" width="5%" dataAlign="center" dataSort={true}> Team </TableHeaderColumn>
+      <TableHeaderColumn dataField="team" width="5%" dataAlign="center" dataSort={true} filter={{ type: 'TextFilter'}} > Team </TableHeaderColumn>
       <TableHeaderColumn dataField="team_pos" width="5%" dataAlign="center" dataSort={true}> POS </TableHeaderColumn>
 
       <TableHeaderColumn dataField="points_allowed" width="5%" dataAlign="center" dataSort={true}> Points Allowed </TableHeaderColumn>

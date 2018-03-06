@@ -7,7 +7,7 @@ const KickerTable = ({kicker, option, imageFormater, Select}) => {
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>
       <TableHeaderColumn dataField="player_photo" dataFormat={imageFormater} width="5%" dataAlign="center" dataSort={true}> Photo </TableHeaderColumn>
-      <TableHeaderColumn dataField="player_name" width="5%" dataAlign="center" dataSort={true}> Name </TableHeaderColumn>
+      <TableHeaderColumn dataField="player_name" width="5%" dataAlign="center" dataSort={true} filter={{ type: 'TextFilter', delay: 1000 }} > Name </TableHeaderColumn>
       <TableHeaderColumn dataField="player_team" width="5%" dataAlign="center" dataSort={true}> Team </TableHeaderColumn>
       <TableHeaderColumn dataField="player_pos" width="5%" dataAlign="center" dataSort={true}> POS </TableHeaderColumn>
 
