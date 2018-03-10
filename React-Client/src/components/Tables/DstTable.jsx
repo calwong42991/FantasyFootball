@@ -2,7 +2,7 @@ import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 const DstTable = ({dst, option, imageFormater, Select}) => {
-  return (<div>
+  return (<div className='dstTable'>
     <BootstrapTable data={dst.sort((a,b) => {return a.rank - b.rank})} pagination={true} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} options={{onRowClick: Select}} >
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>

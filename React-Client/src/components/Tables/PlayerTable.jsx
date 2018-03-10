@@ -2,7 +2,7 @@ import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 const PlayerTable = ({players, PosSelected, option, imageFormater, Select}) => {
-  return (<div>
+  return (<div className='playerTable'>
     <BootstrapTable data={PosSelected === '' ? players.sort((a,b) => {return a.rank - b.rank}) : players.filter((a) => {return a.player_pos === PosSelected}).sort((a,b) => {return a.rank - b.rank}) } pagination={true} striped hover containerStyle={{width:'150%', overflowX: 'scroll'}} bordered={true} options={{onRowClick: Select}} >
 
       <TableHeaderColumn dataField="rank" isKey={true} width="3%" dataAlign="center" dataSort={true}  >Rank </TableHeaderColumn>
