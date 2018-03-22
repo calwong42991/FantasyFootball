@@ -4,7 +4,7 @@ class Player {
   static getAllPlayers(req, res) {
     models.player.getAllPlayers()
       .then((data) => {
-        console.log(data);
+        console.log("Got All Players");
         res.send(data);
       })
       .catch((error) => {
@@ -15,7 +15,7 @@ class Player {
   static getAllKickers(req, res) {
     models.player.getAllKickers()
       .then((data) => {
-        console.log(data);
+        console.log("Got All Kickers");
         res.send(data);
       })
       .catch((error) => {
@@ -27,7 +27,7 @@ class Player {
   static getAllDst(req, res) {
     models.player.getAllDst()
       .then((data) => {
-        console.log(data)
+        console.log("Got All DST")
         res.send(data);
       })
       .catch((error) => {

@@ -60,3 +60,7 @@ CREATE TABLE IF NOT EXISTS dst_fantasy_stats (
   fantasy_pts INT,
   PRIMARY KEY (rank)
 );
+
+CREATE INDEX all_players ON fantasy_football.player_fantasy_stats;
+CREATE INDEX kicker_players ON fantasy_football.kicker_fantasy_stats;
+CREATE INDEX dst_players ON fantasy_football.dst_fantasy_stats;
