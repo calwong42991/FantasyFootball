@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import axios from 'axios';
-import PlayersList from './PlayersList';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import NavBar from './nav_bar/Navigation';
 import PlayerTable from './Tables/PlayerTable';
 import KickerTable from './Tables/KickerTable';
@@ -275,7 +271,6 @@ class App extends Component {
     return (<div> 
       <NavBar />
       <h1>Fantasy Football</h1>
-      {false && <PlayersList players={this.state.players}/> }
 
       {true && <TeamLog QB={this.state.QB} RB_One={this.state.RB_One} RB_Two={this.state.RB_Two} WR_One={this.state.WR_One} WR_Two={this.state.WR_Two} TE={this.state.TE} Kicker={this.state.kicks} Dst={this.state.defense} BN1={this.state.BN1} BN2={this.state.BN2} BN3={this.state.BN3} BN4={this.state.BN4} BN5={this.state.BN5}/>}
       
